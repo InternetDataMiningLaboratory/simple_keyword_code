@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Keyword {
+public class Module {
 	
 	public static void main(String[] args) throws Exception{
 		String driver = "com.mysql.jdbc.Driver";
@@ -63,7 +63,7 @@ public class Keyword {
 			search_id = rs1.getInt("last_insert_id()");
 			System.out.println("search_id:"+search_id);
 			
-	        String sr=Keyword.sendPost("http://scheduler:9000/service/searchEngine/search", "search_id="+search_id);
+	        String sr=Module.sendPost("http://scheduler:9000/service/searchEngine/search", "search_id="+search_id);
 	        System.out.println(sr);
 			
 			String sql4 = "select * from search where search_id = ?";
