@@ -42,8 +42,14 @@ public class Module {
 			rs.last();  
 			int rowCount = rs.getRow();
 			rs.beforeFirst();
-			if(rowCount == 0)
+			if(rowCount == 0){
+				String sql6 = "update user set user_score = ? where user_id = ?";
+	            PreparedStatement pst6 = conn.prepareStatement(sql6);
+	            pst6.setString(1, null);
+	            pst6.setString(2, args[0]);
+	            pst6.executeUpdate();
 				return;
+			}
 			else{
 				while(rs.next()){
 					keyword = rs.getString("keyword");
